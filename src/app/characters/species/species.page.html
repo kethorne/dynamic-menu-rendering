@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+	<ion-toolbar color="warning">
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title style="text-align: center" routerLink="/home">
+			Dynamic Menu Routing
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-row>
+	<ion-col size="4">
+		<ion-content #content style="height: 750px">
+			<ion-card>
+				<ion-card-content>
+					<ion-row>
+						<ion-col>
+							<h2>Name</h2>
+						</ion-col>
+						<ion-col>
+							<h2>Classification</h2>
+						</ion-col>
+					</ion-row>
+					<ion-row *ngFor="let type of species" [routerLink]="['/', 'species', 'species-detail', type.designation]" id="{{type.designation}}">
+						<ion-col>
+							<h4>{{type.name}}</h4>
+						</ion-col>
+						<ion-col>
+							<h4>{{type.classification}}</h4>
+						</ion-col>
+					</ion-row>
+				</ion-card-content>
+			</ion-card>
+		</ion-content>
+	</ion-col>
+	<ion-col>
+		<ion-router-outlet></ion-router-outlet>
+	</ion-col>
+</ion-row>
+</ion-content>

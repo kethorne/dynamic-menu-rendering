@@ -10,6 +10,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  
+  showPeopleSub: boolean = false;
+  showTransportSub: boolean = false;
+  
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -23,5 +27,13 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+  
+  showPeopleSubMenu() {
+    this.showPeopleSub = !this.showPeopleSub;
+  }
+  
+  showTransportationSubMenu() {
+    this.showTransportSub = !this.showTransportSub;
   }
 }

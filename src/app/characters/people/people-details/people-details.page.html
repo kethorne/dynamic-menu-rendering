@@ -1,0 +1,58 @@
+<ion-content>
+	<ion-row>
+		<ion-col *ngIf="showData">
+			<ion-card>
+				<ion-card-content>
+					<ion-card-header>
+						Character's Details
+					</ion-card-header>
+					<form [formGroup]="characterDetailForm"></form>
+					<ion-row>
+						<ion-col>
+							<ion-item lines="none">
+								<ion-label position="floating">Name</ion-label>
+								<ion-input type="text" formControlName="name"></ion-input>
+							</ion-item>
+						</ion-col>
+						<ion-col>
+							<ion-item lines="none">
+								<ion-label position="floating">Gender</ion-label>
+								<ion-input type="text" formControlName="gender"></ion-input>
+							</ion-item>
+						</ion-col>
+						<ion-col>
+							<ion-item lines="none">
+								<ion-label position="floating">Eye Color</ion-label>
+								<ion-input type="text" formControlName="eyeColor"></ion-input>
+							</ion-item>
+						</ion-col>
+						<ion-col>
+							<ion-item lines="none">
+								<ion-label position="floating">Hair Color</ion-label>
+								<ion-input type="text" formControlName="hairColor"></ion-input>
+							</ion-item>
+						</ion-col>
+						<ion-col>
+							<ion-item lines="none">
+								<ion-label position="floating">Height</ion-label>
+								<ion-input type="text" formControlName="height"></ion-input>
+							</ion-item>
+						</ion-col>
+						<ion-col>
+							<ion-item lines="none">
+								<ion-label position="floating">Skin Color</ion-label>
+								<ion-input type="text" formControlName="skinColor"></ion-input>
+							</ion-item>
+						</ion-col>
+						<ion-col>
+							<ion-item lines="none">
+								<ion-label position="floating">Mass</ion-label>
+								<ion-input type="text" formControlName="mass"></ion-input>
+							</ion-item>
+						</ion-col>
+					</ion-row>
+				</ion-card-content>
+			</ion-card>
+		</ion-col>
+	</ion-row>
+</ion-content>

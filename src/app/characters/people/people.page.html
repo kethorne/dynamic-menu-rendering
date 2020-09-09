@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+	<ion-toolbar color="warning">
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title style="text-align: center" routerLink="/home">
+			Dynamic Menu Routing
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-row>
+		<ion-col size="4">
+			<ion-content #content style="height: 750px">
+				<ion-card >
+					<ion-card-content>
+						<ion-row >
+							<ion-col>
+								<h2>Character</h2>
+							</ion-col>
+							<ion-col>
+								<h2>No. of Films</h2>
+							</ion-col>
+						</ion-row>
+						<ion-row *ngFor="let character of people" [routerLink]="['/', 'people', 'people-details', character.birth_year]" id="{{character.birth_year}}">
+							<ion-col>
+								<h4>{{character.name}}</h4>
+							</ion-col>
+							<ion-col>
+								<h4>{{character.films.length}}</h4>
+							</ion-col>
+						</ion-row>
+					</ion-card-content>
+				</ion-card>
+			</ion-content>
+		</ion-col>
+		<ion-col>
+			<ion-router-outlet></ion-router-outlet>
+		</ion-col>
+	</ion-row>
+</ion-content>
