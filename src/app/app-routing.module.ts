@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {AuthGuard} from './services/authguard.service';
 
 const routes: Routes = [
+    {
+        path: 'log-in',
+        loadChildren: () => import('./home/login-logout/log-in/log-in.module').then(m => m.LogInPageModule)
+    },
   {
     path: '',
     redirectTo: 'home',
@@ -11,7 +16,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
- 
+
   {
     path: 'people',
     loadChildren: () => import('./characters/people/people.module').then( m => m.PeoplePageModule)

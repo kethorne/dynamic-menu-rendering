@@ -27,9 +27,7 @@ export class PeoplePage implements OnInit {
 
       this.people = data.results;
     });
-
   }
 
-
-
 }
+
