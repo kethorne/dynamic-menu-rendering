@@ -1,4 +1,6 @@
 export interface StarshipModel {
+    results: [
+        {
   MGLT: string;
   cargo_capacity: string;
   consumables: string;
@@ -17,4 +19,6 @@ export interface StarshipModel {
   pilots: [];
   starship_class: string;
   url: string;
+        }
+    ];
 }

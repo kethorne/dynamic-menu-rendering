@@ -1,56 +1,61 @@
 <ion-content>
 	<ion-row>
-		<ion-col *ngIf="showData">
-			<ion-card>
-				<ion-card-content>
-					<ion-card-header>
-						Character's Details
+		<ion-col *ngIf='showData' >
+			<ion-card >
+				<ion-card-content >
+					<ion-card-header style='text-align: center' >
+					<ion-title style='font-weight: bolder; font-size: larger'>Character Details</ion-title>
 					</ion-card-header>
-					<form [formGroup]="characterDetailForm"></form>
-					<ion-row>
+					<ion-row >
 						<ion-col>
-							<ion-item lines="none">
-								<ion-label position="floating">Name</ion-label>
-								<ion-input type="text" formControlName="name"></ion-input>
-							</ion-item>
+						<h1 style='color: black'>Name</h1>
 						</ion-col>
 						<ion-col>
-							<ion-item lines="none">
-								<ion-label position="floating">Gender</ion-label>
-								<ion-input type="text" formControlName="gender"></ion-input>
-							</ion-item>
+							<h1 style='color: black'>Gender</h1>
 						</ion-col>
 						<ion-col>
-							<ion-item lines="none">
-								<ion-label position="floating">Eye Color</ion-label>
-								<ion-input type="text" formControlName="eyeColor"></ion-input>
-							</ion-item>
+							<h1 style='color: black'>Eye Color</h1>
 						</ion-col>
 						<ion-col>
-							<ion-item lines="none">
-								<ion-label position="floating">Hair Color</ion-label>
-								<ion-input type="text" formControlName="hairColor"></ion-input>
-							</ion-item>
+							<h1 style='color: black'>Hair Color</h1>
 						</ion-col>
 						<ion-col>
-							<ion-item lines="none">
-								<ion-label position="floating">Height</ion-label>
-								<ion-input type="text" formControlName="height"></ion-input>
-							</ion-item>
+							<h1 style='color: black'>Height</h1>
 						</ion-col>
 						<ion-col>
-							<ion-item lines="none">
-								<ion-label position="floating">Skin Color</ion-label>
-								<ion-input type="text" formControlName="skinColor"></ion-input>
-							</ion-item>
+							<h1 style='color: black'>Skin Color</h1>
 						</ion-col>
 						<ion-col>
-							<ion-item lines="none">
-								<ion-label position="floating">Mass</ion-label>
-								<ion-input type="text" formControlName="mass"></ion-input>
-							</ion-item>
+							<h1 style='color: black'>Mass</h1>
 						</ion-col>
 					</ion-row>
+                    <ion-row *ngFor='let character of peopleDetails' >
+                        <ion-col>
+                            <ion-row >
+                                <ion-col>
+                                    <h2>{{character['name']}}</h2>
+                                </ion-col>
+                                <ion-col>
+                                    <h2>{{character['gender']}}</h2>
+                                </ion-col>
+                                <ion-col>
+                                    <h2>{{character['eye_color']}}</h2>
+                                </ion-col>
+                                <ion-col>
+                                    <h2>{{character['hair_color']}}</h2>
+                                </ion-col>
+                                <ion-col>
+                                    <h2>{{character['height']}}</h2>
+                                </ion-col>
+                                <ion-col>
+                                    <h2>{{character['skin_color']}}</h2>
+                                </ion-col>
+                                <ion-col>
+                                    <h2>{{character['mass']}}</h2>
+                                </ion-col>
+                            </ion-row>
+                        </ion-col>
+                    </ion-row>
 				</ion-card-content>
 			</ion-card>
 		</ion-col>

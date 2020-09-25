@@ -10,46 +10,32 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./people-details.page.scss'],
 })
 export class PeopleDetailsPage implements OnInit {
+    peopleDetails: CharacterModel[] = [];
+    showData: boolean = false;
+    birthYear: string;
+    characterDetailForm;
+    FormGroup;
 
-  peopleDetails: CharacterModel[];
-  showData: boolean = false;
-  birthYear: string;
-  characterDetailForm; FormGroup;
-  constructor(private route: ActivatedRoute, private swDetailService: PeopleService) { }
+    constructor(private route: ActivatedRoute, private swDetailService: PeopleService) {
+    }
 
-  ngOnInit() {
-    this.swDetailService.getPeopleData();
-    this.swDetailService.returnSWCharacterData.subscribe((data: CharacterModel[]) => {
-      this.peopleDetails = data.results;
-    });
-    this.createCharacterDetailForm();
-    this.showData = true;
-  }
-  
-  
-  createCharacterDetailForm() {
-    this.characterDetailForm = new FormGroup({
-      name: new FormControl(this.peopleDetails.name, {
-        updateOn: 'blur',
-      }),
-      gender: new FormControl(this.peopleDetails.results.gender,{
-        updateOn: 'blur',
-      }),
-      eyeColor: new FormControl(this.peopleDetails.results.eye_color, {
-        updateOn: 'blur'
-      }),
-      hairColor: new FormControl(this.peopleDetails.results.hair_color, {
-        updateOn: 'blur'
-      }),
-      height: new FormControl(this.peopleDetails.results.height, {
-        updateOn: 'blur'
-      }),
-      skinColor: new FormControl(this.peopleDetails.results.skin_color, {
-        updateOn: 'blur'
-      }),
-      mass: new FormControl(this.peopleDetails.results.mass, {
-        updateOn: 'blur'
-      }),
-    });
-  }
+    async ngOnInit() {
+        this.showData = false;
+        await this.route.paramMap.subscribe(paramMap => {
+            if (paramMap.get('birth_year')) {
+                this.birthYear = paramMap.get('birth_year');
+            }
+        });
+
+        await this.swDetailService.getPeopleData();
+        await this.swDetailService.returnSWCharacterData.subscribe((data: CharacterModel[]) => {
+            console.log(data);
+            console.log(data.results);
+            this.peopleDetails = data.results;
+            this.showData = true;
+        });
+    }
 }
+
+
+
